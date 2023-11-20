@@ -147,7 +147,7 @@ dados_mapa_final['Quantidade de Frascos 50mL'] = dados_mapa_final['Quantidade de
 dados_mapa_final = dados_mapa_final[['geometry','IBGE6','NOME_MUNICIPIO','Coordenadoria Regional de Saúde (CRS)','Quantidade de Frascos 50mL']]
 dados_mapa_final['IBGE6'] = dados_mapa_final['IBGE6'].astype(str)
 
-crs_muni = pd.read_excel('CRS_MUNI.xlsx', sheet_name='DATABASE2 - CONTATOS MUNICÍPIOS')
+crs_muni = pd.read_csv('CRS_MUNI.csv')
 dicionario_crs_certa = {'1ª': '01ª CRS',
                         '2ª': '02ª CRS',
                         '3ª': '03ª CRS',
