@@ -19,13 +19,6 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
-
-#st.markdown('''<style>
-#   [data-testid=stAppViewContainer]{
-#     background: repeating-linear-gradient(-45deg, lightgreen 0%, #8FBC8F 7.14%, lightgreen 14.28%, lightgreen 21.4%, #8FBC8F 28.56%,  35.7%, lightgreen 42.84%, lightgreen 50%);
-#  }        
-#  </style>''', unsafe_allow_html=True)
-
 with st.container():
     coluna_inicial1,coluna_inicial2,coluna_inicial3 = st.columns([1,6,1])
     with coluna_inicial1:
@@ -147,7 +140,7 @@ dados_mapa_final['Quantidade de Frascos 50mL'] = dados_mapa_final['Quantidade de
 dados_mapa_final = dados_mapa_final[['geometry','IBGE6','NOME_MUNICIPIO','Coordenadoria Regional de Saúde (CRS)','Quantidade de Frascos 50mL']]
 dados_mapa_final['IBGE6'] = dados_mapa_final['IBGE6'].astype(str)
 
-crs_muni = pd.read_csv('CRS_MUNI.csv')
+crs_muni = pd.read_csv('https://raw.githubusercontent.com/Yuri-Pedde/hipoclorito/main/CRS_MUNI.csv?token=GHSAT0AAAAAACKGYFXDBZHTE4QICH6NAR64ZK3UUDA')
 dicionario_crs_certa = {'1ª': '01ª CRS',
                         '2ª': '02ª CRS',
                         '3ª': '03ª CRS',
