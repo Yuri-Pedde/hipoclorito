@@ -140,7 +140,7 @@ dados_mapa_final['Quantidade de Frascos 50mL'] = dados_mapa_final['Quantidade de
 dados_mapa_final = dados_mapa_final[['geometry','IBGE6','NOME_MUNICIPIO','Coordenadoria Regional de Saúde (CRS)','Quantidade de Frascos 50mL']]
 dados_mapa_final['IBGE6'] = dados_mapa_final['IBGE6'].astype(str)
 
-crs_muni = pd.read_csv('https://raw.githubusercontent.com/yuripedde/hipoclorito/main/CRS_MUNI.csv',sep=',',encoding='latin1')
+crs_muni = pd.read_csv("https://raw.githubusercontent.com/Yuri-Pedde/hipoclorito/main/CRS_MUNI.csv?token=GHSAT0AAAAAACKGYFXD3QRR23AGULBRMDP2ZK3WD2A")
 dicionario_crs_certa = {'1ª': '01ª CRS',
                         '2ª': '02ª CRS',
                         '3ª': '03ª CRS',
