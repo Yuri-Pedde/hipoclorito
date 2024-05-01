@@ -36,6 +36,7 @@ with st.container():
 def load_data(url):
     df = pd.read_table(url)
     df = df.dropna(how='all', axis=0)
+    df = df.rename(columns={'Carimbo de data/hora':'data e hora'})
     df = df[['data e hora', 'Coordenadoria Regional de Saúde (CRS)',
         'Município','Quantidade de Caixas', 'Motivo',
         'População Atendida - Estimativa', 'Locais de Distribuição']]
@@ -82,6 +83,7 @@ def load_data(url):
         lista_estimativa.append(numero)
     
     df_notnull['População Atendida - Estimativa2'] = lista_estimativa
+    df_notnull = df_notnull.rename(columns={'Carimbo de data/hora':'data e hora'})
     df_notnull = df_notnull[['data e hora','Coordenadoria Regional de Saúde (CRS)', 'Município',
        'Quantidade de Caixas', 'Motivo','População Atendida - Estimativa2']]
     df_notnull=df_notnull.dropna(how='any', axis=0)
