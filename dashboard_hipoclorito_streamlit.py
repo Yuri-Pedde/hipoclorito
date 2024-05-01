@@ -82,7 +82,7 @@ def load_data(url):
         lista_estimativa.append(numero)
     
     df_notnull['População Atendida - Estimativa2'] = lista_estimativa
-    df_notnull = df_notnull[['Coordenadoria Regional de Saúde (CRS)', 'Município',
+    df_notnull = df_notnull[['data e hora','Coordenadoria Regional de Saúde (CRS)', 'Município',
        'Quantidade de Caixas', 'Motivo','População Atendida - Estimativa2']]
     df_notnull=df_notnull.dropna(how='any', axis=0)
     df_notnull["Quantidade de Frascos 50mL"] = df_notnull["Quantidade de Caixas"]*50
