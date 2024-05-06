@@ -3,9 +3,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-import seaborn as sns
-from plotly.subplots import make_subplots
-import matplotlib.pyplot as plt
 import geopandas as gpd
 import unicodedata
 from streamlit_extras.app_logo import add_logo 
