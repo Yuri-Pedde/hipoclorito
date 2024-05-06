@@ -3,7 +3,7 @@ pandas
 numpy
 seaborn
 matplotlib
-plotly
+plotly >= 1.52.0
 geopandas
 streamlit_extras
 streamlit_elements
