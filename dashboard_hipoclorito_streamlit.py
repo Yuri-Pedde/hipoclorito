@@ -10,7 +10,7 @@ import geopandas as gpd
 from unidecode import unidecode
 from streamlit_extras.app_logo import add_logo 
 from streamlit_elements import elements, mui, html
-
+import unicodedata
 
 st.set_page_config(
     page_title="NaClO RS",
