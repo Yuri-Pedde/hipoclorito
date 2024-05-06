@@ -101,7 +101,7 @@ def load_data(url):
     df_notnull['Mês de referência'] = df_notnull['data e hora'].str.split(' ', expand=True)[0].str.split('/', expand=True)[1]
     df_notnull['Dia de referência'] = df_notnull['data e hora'].str.split(' ', expand=True)[0].str.split('/', expand=True)[0]
     df_notnull['Date'] = df_notnull['Dia de referência'] + '/' + df_notnull['Mês de referência'] + '/' + df_notnull['Ano de referência']
-    df_notnull['Date'] = pd.to_datetime(df_notnull['Date'], format = "%d/%m/%Y", errors='coerce')
+    df_notnull['Date'] = pd.to_datetime(df_notnull['Date'], format = "%d/%m/%Y")
     return df_notnull
 
 @st.cache_data #nao precisa fazer o loading o tempo todo
