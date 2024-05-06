@@ -1,10 +1,11 @@
-streamlit >= 1.34.0
-pandas >= 1.3.0
-numpy >= 1.21.0
-seaborn >= 0.11.0
-matplotlib >= 3.4.0
-plotly >= 5.0.0
-geopandas >= 0.9.0
-unidecode >= 1.2.0
-streamlit_extras >= 0.8.0
-streamlit_elements >= 0.41.0
+streamlit
+pandas
+numpy
+seaborn
+matplotlib
+plotly
+geopandas
+unidecode
+streamlit_extras
+streamlit_elements
+unicodedata >= 1.2.0
