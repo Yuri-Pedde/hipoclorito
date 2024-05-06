@@ -140,7 +140,7 @@ df_hipoclorito_ano['Quantidade de Frascos 50mL'] = df_hipoclorito_ano['Quantidad
 df_hipoclorito_ano_pivoted = pd.pivot_table(df_hipoclorito_ano, index=['Coordenadoria Regional de Saúde (CRS)', 'Município'], values='Quantidade de Frascos 50mL', aggfunc='sum').fillna(0).reset_index()
 
 municipios = municipios[['NOME_MUNICIPIO','geometry','IBGE6']]
-dados_mapa_final = pd.merge(municipios, df_hipoclorito_ano_pivoted, left_on ="NOME_MUNICIPIO", right_on='Município', how='left')
+dados_mapa_final = pd.merge(municipios, df_hipoclorito_ano_pivoted, left_on ="NOME_MUNICIPIO", right_on='Município', how='right')
 dados_mapa_final['Quantidade de Frascos 50mL'] = dados_mapa_final['Quantidade de Frascos 50mL'].fillna(0)
 dados_mapa_final = dados_mapa_final[['NOME_MUNICIPIO','geometry','IBGE6','Coordenadoria Regional de Saúde (CRS)','Quantidade de Frascos 50mL']]
 dados_mapa_final['IBGE6'] = dados_mapa_final['IBGE6'].astype(str)
