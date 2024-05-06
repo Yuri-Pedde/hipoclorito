@@ -248,7 +248,7 @@ with col1:
                                 )
 
 with col2:
-    map_fig
+    map_fig.write_html("plotly_map.html")
 
 st.markdown("""
 <style>
