@@ -5,6 +5,5 @@ seaborn
 matplotlib
 plotly
 geopandas
-unicodedata
 streamlit_extras
 streamlit_elements
