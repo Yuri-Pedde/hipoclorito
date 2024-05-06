@@ -7,7 +7,7 @@ import seaborn as sns
 from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 import geopandas as gpd
-from unidecode import unidecode
+import unicodedata
 from streamlit_extras.app_logo import add_logo 
 from streamlit_elements import elements, mui, html
 
