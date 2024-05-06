@@ -250,12 +250,12 @@ with col1:
 
 with col2:
     # Convert the Plotly figure to an image
-    img_bytes = pio.to_image(map_fig, format="png")
+    img_bytes = pio.to_image(map_fig, format="svg")
 
     # Read the image with matplotlib and display it
     img = plt.imread(img_bytes)
-    plt.imshow(img)
-    plt.axis('off')  # Turn off axis
+    #plt.imshow(img)
+    #plt.axis('off')  # Turn off axis
     st.pyplot(plt.gcf())
 
 st.markdown("""
