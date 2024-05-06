@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 import geopandas as gpd
 import unicodedata
 from streamlit_elements import elements, mui
+import plotly.io as pio
+
+pio.renderers.default = "svg"
 
 st.set_page_config(
     page_title="NaClO RS",
