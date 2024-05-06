@@ -173,12 +173,10 @@ dados_mapa_final['NOME_MUNICIPIO'] = dados_mapa_final['NOME_MUNICIPIO'].apply(la
 dados_mapa_final['CRS'] = dados_mapa_final['NOME_MUNICIPIO'].map(dicionario_crs_muni)
 dados_mapa_final = dados_mapa_final.drop('Coordenadoria Regional de Saúde (CRS)', axis=1)
 
-import json
-
-geojson_str = dados_mapa_final.to_json()
+#geojson_str = dados_mapa_final.to_json()
 
 map_fig = px.choropleth_mapbox(dados_mapa_final, 
-                                geojson=geojson_str,  # Use the GeoJSON string
+                                geojson=dados_mapa_final.geometry,  # Use the GeoJSON string
                                 locations=dados_mapa_final.index, 
                                 color='Quantidade de Frascos 50mL',
                                 color_continuous_scale='YlOrBr',
