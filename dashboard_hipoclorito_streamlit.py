@@ -254,7 +254,7 @@ with col2:
 
     # Read the image with matplotlib and display it
     img = plt.imread(img_bytes)
-    #plt.imshow(img)
+    plt.imshow(img)
     #plt.axis('off')  # Turn off axis
     st.pyplot(plt.gcf())
 
