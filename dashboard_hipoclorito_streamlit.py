@@ -172,22 +172,33 @@ dicionario_crs_muni = crs_muni_2.to_dict()['CRS']
 dados_mapa_final['NOME_MUNICIPIO'] = dados_mapa_final['NOME_MUNICIPIO'].apply(lambda x: x.strip().lower())
 dados_mapa_final['CRS'] = dados_mapa_final['NOME_MUNICIPIO'].map(dicionario_crs_muni)
 dados_mapa_final = dados_mapa_final.drop('Coordenadoria Regional de Saúde (CRS)', axis=1)
-map_fig = px.choropleth_mapbox(dados_mapa_final, geojson=dados_mapa_final.geometry,
-                          locations=dados_mapa_final.index, color='Quantidade de Frascos 50mL',
-                          color_continuous_scale = 'YlOrBr',
-                          center ={'lat':-30.452349861219243, 'lon':-53.55320517512141},
-                          zoom=5.7,
-                          mapbox_style="stamen-watercolor",
-                          hover_name='NOME_MUNICIPIO',
-                          width=1000,
-                          height=750,
-                          template='plotly_dark',
-                          title = f'Mapa de Calor: Quantidade de Frascos Distribuídos por Município do Rio Grande do Sul no ano de {ano}')
+
+import json
+
+geojson_str = dados_mapa_final.to_json()
+
+map_fig = px.choropleth_mapbox(dados_mapa_final, 
+                                geojson=geojson_str,  # Use the GeoJSON string
+                                locations=dados_mapa_final.index, 
+                                color='Quantidade de Frascos 50mL',
+                                color_continuous_scale='YlOrBr',
+                                center={'lat':-30.452349861219243, 'lon':-53.55320517512141},
+                                zoom=5.7,
+                                mapbox_style="stamen-watercolor",
+                                hover_name='NOME_MUNICIPIO',
+                                width=1000,
+                                height=750,
+                                template='plotly_dark',
+                                title=f'Mapa de Calor: Quantidade de Frascos Distribuídos por Município do Rio Grande do Sul no ano de {ano}')
 
 map_fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=30, r=30, t=50, b=30))
 
-map_fig.update_traces(marker_line_width=0.4)
-map_fig.update_coloraxes(colorbar={'orientation':'h','thickness':30}, colorbar_yanchor='bottom', colorbar_y=-0.2) 
+map_fig.update_traces(marker_line_width=0.2)
+
+# Update color axes
+map_fig.update_coloraxes(colorbar={'orientation':'h', 'thickness':30},
+                         colorbar_yanchor='bottom',
+                         colorbar_y=-0.2) 
                                   
 dados_mapa_final_crs = dados_mapa_final.groupby('CRS').sum('Quantidade de Frascos 50mL')
 dados_crs = dados_mapa_final_crs.rename_axis('CRS').reset_index()
