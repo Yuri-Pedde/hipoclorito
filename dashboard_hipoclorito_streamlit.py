@@ -84,7 +84,6 @@ def load_data(url):
         lista_estimativa.append(numero)
     
     df_notnull['População Atendida - Estimativa2'] = lista_estimativa
-    df_notnull = df_notnull.rename(columns={'Carimbo de data/hora':'data e hora'})
     df_notnull = df_notnull[['data e hora','Coordenadoria Regional de Saúde (CRS)', 'Município',
        'Quantidade de Caixas', 'Motivo','População Atendida - Estimativa2']]
     df_notnull=df_notnull.dropna(how='any', axis=0)
@@ -130,7 +129,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 col_cabecalho1, col_cabecalho2 = st.columns([1,1.2])
 with col_cabecalho1:
-    ano = st.selectbox('Selecione o ano',sorted(df_hipoclorito['Ano de referência'].unique()), index=2)
+    ano = st.selectbox('Selecione o ano',sorted(df_hipoclorito['Ano de referência'].unique()), index=len(df_hipoclorito['Ano de referência'].unique())-1)
 
 filtro_ano = df_hipoclorito['Ano de referência'] == str(ano)
 
