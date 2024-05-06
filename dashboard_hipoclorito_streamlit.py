@@ -41,6 +41,7 @@ def load_data(url):
     df = df[['data e hora', 'Coordenadoria Regional de Saúde (CRS)',
         'Município','Quantidade de Caixas', 'Motivo',
         'População Atendida - Estimativa', 'Locais de Distribuição']]
+    df['data e hora'] = df[df['data e hora']!='IMS']
     df_notnull = df[(df['Coordenadoria Regional de Saúde (CRS)']!="")&(df['Município']!='2')]
     df_notnull['Coordenadoria Regional de Saúde (CRS)'] = df_notnull['Coordenadoria Regional de Saúde (CRS)'].str.replace('5ªCRS', '5ª CRS')
     df_notnull['Coordenadoria Regional de Saúde (CRS)'] = df_notnull['Coordenadoria Regional de Saúde (CRS)'].str.strip()
