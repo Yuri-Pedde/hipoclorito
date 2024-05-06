@@ -8,4 +8,3 @@ geopandas
 unidecode
 streamlit_extras
 streamlit_elements
-unicodedata >= 1.2.0
