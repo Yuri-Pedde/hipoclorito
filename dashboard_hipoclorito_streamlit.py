@@ -254,7 +254,7 @@ with col1:
                                 )
 
 with col2:
-    map_fig.show()
+    map_fig
 
 st.markdown("""
 <style>
