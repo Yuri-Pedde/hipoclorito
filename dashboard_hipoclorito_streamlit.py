@@ -249,7 +249,7 @@ with col1:
 
 with col2:
     map_fig.write_html("map_fig.html")
-    st.components.v1.iframe("map_fig.html", width=1000, height=750)
+    map_fig
 
 st.markdown("""
 <style>
