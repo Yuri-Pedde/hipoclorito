@@ -8,3 +8,4 @@ geopandas
 unidecode
 streamlit_extras
 streamlit_elements
+unicodedata
