@@ -112,12 +112,12 @@ def load_geodata(url):
 df_hipoclorito = load_data('https://docs.google.com/spreadsheets/d/e/2PACX-1vRAccHk7j1-Oh7u6P-r70vX4WWud1S_3SCURCfcjzPgz1x7a9GH8OAocnxbz9zmvVNG0bHMGQRmzOyI/pub?output=tsv')
 df_hipoclorito['Ano de referência'] = df_hipoclorito['Ano de referência'].fillna('0')
 df_hipoclorito = df_hipoclorito[df_hipoclorito['Ano de referência']!='0']
-df_hipoclorito['Município'] = df_hipoclorito['Município'].apply(lambda x: remover_acentos(x.strip()))
+df_hipoclorito['Município'] = df_hipoclorito['Município'].apply(lambda x: remover_acentos(x.strip().lower()))
 
 municipios = load_geodata('https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json')
 municipios["IBGE6"] = municipios["CD_MUN"].str.slice(0,6)
 municipios['NOME_MUNICIPIO'] = municipios['NM_MUN']
-municipios['NOME_MUNICIPIO'] = municipios['NOME_MUNICIPIO'].apply(lambda x: remover_acentos(x.strip()))
+municipios['NOME_MUNICIPIO'] = municipios['NOME_MUNICIPIO'].apply(lambda x: remover_acentos(x.strip().lower()))
 
 st.markdown("""
 <style>
@@ -164,12 +164,12 @@ dicionario_crs_certa = {'1ª': '01ª CRS',
                         '16ª': '16ª CRS',
                         '17ª': '17ª CRS',
                         '18ª': '18ª CRS'}
-crs_muni['MUNICÍPIOS'] = crs_muni['MUNICÍPIOS'].apply(lambda x: remover_acentos(x.strip()))
+crs_muni['MUNICÍPIOS'] = crs_muni['MUNICÍPIOS'].apply(lambda x: remover_acentos(x.strip().lower()))
 crs_muni['CRS'] = crs_muni['CRS'].map(dicionario_crs_certa)
 crs_muni_2 = crs_muni.set_index('MUNICÍPIOS')
 
 dicionario_crs_muni = crs_muni_2.to_dict()['CRS']
-dados_mapa_final['NOME_MUNICIPIO'] = dados_mapa_final['NOME_MUNICIPIO'].apply(lambda x: x.strip())
+dados_mapa_final['NOME_MUNICIPIO'] = dados_mapa_final['NOME_MUNICIPIO'].apply(lambda x: x.strip().lower())
 dados_mapa_final['CRS'] = dados_mapa_final['NOME_MUNICIPIO'].map(dicionario_crs_muni)
 dados_mapa_final = dados_mapa_final.drop('Coordenadoria Regional de Saúde (CRS)', axis=1)
 map_fig = px.choropleth_mapbox(dados_mapa_final, geojson=dados_mapa_final.geometry,
