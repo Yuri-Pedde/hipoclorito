@@ -249,6 +249,7 @@ with col1:
 
 with col2:
     map_fig.write_html("plotly_map.html")
+    st.components.v1.iframe("plotly_map.html", width=1000, height=750)
 
 st.markdown("""
 <style>
