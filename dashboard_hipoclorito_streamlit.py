@@ -191,7 +191,7 @@ map_fig = px.choropleth_mapbox(dados_mapa_final,
                                 template='plotly_dark',
                                 title=f'Mapa de Calor: Quantidade de Frascos Distribuídos por Município do Rio Grande do Sul no ano de {ano}')
 
-map_fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=30, r=30, t=50, b=30))
+map_fig.update_layout(paper_bgcolor='rgba(0,0,0,0.25)', margin=go.layout.Margin(l=30, r=30, t=50, b=30))
 
 map_fig.update_traces(marker_line_width=0.2)
 
