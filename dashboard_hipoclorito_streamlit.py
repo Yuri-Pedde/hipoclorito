@@ -164,6 +164,7 @@ dicionario_crs_certa = {'1ª': '01ª CRS',
                         '16ª': '16ª CRS',
                         '17ª': '17ª CRS',
                         '18ª': '18ª CRS'}
+crs_muni['MUNICÍPIOS'] = crs_muni['MUNICÍPIOS'].apply(lambda x: remover_acentos(x.strip()))
 crs_muni['CRS'] = crs_muni['CRS'].map(dicionario_crs_certa)
 crs_muni_2 = crs_muni.set_index('MUNICÍPIOS')
 
@@ -185,8 +186,8 @@ map_fig = px.choropleth_mapbox(dados_mapa_final, geojson=dados_mapa_final.geomet
 
 #map_fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=30, r=30, t=50, b=30))
 
-map_fig.update_traces(marker_line_width=0.2)
-#map_fig.update_coloraxes(colorbar={'orientation':'h','thickness':30}, colorbar_yanchor='bottom', colorbar_y=-0.2) 
+#map_fig.update_traces(marker_line_width=0.2)
+map_fig.update_coloraxes(colorbar={'orientation':'h','thickness':30}, colorbar_yanchor='bottom', colorbar_y=-0.2) 
                                   
 dados_mapa_final_crs = dados_mapa_final.groupby('CRS').sum('Quantidade de Frascos 50mL')
 dados_crs = dados_mapa_final_crs.rename_axis('CRS').reset_index()
