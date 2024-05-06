@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import geopandas as gpd
 import unicodedata
 from streamlit_elements import elements, mui
+import plotly.io as pio
 
 st.set_page_config(
     page_title="NaClO RS",
@@ -248,8 +249,14 @@ with col1:
                                 )
 
 with col2:
-    map_fig.write_html("map_fig.html")
-    map_fig
+    # Convert the Plotly figure to an image
+    img_bytes = pio.to_image(map_fig, format="png")
+
+    # Read the image with matplotlib and display it
+    img = plt.imread(img_bytes)
+    plt.imshow(img)
+    plt.axis('off')  # Turn off axis
+    st.pyplot(plt.gcf())
 
 st.markdown("""
 <style>
