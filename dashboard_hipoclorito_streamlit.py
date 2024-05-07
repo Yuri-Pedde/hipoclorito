@@ -8,7 +8,6 @@ import unicodedata
 from streamlit_elements import elements, mui
 import folium
 from streamlit_folium import folium_static
-from branca.element import Template, MacroElement
 
 st.set_page_config(
     page_title="NaClO RS",
