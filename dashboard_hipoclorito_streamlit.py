@@ -6,24 +6,8 @@ import plotly.graph_objects as go
 import geopandas as gpd
 import unicodedata
 from streamlit_elements import elements, mui
-
-st.set_page_config(
-    page_title="NaClO RS",
-    page_icon="	:droplet:",
-    layout="wide",
-    initial_sidebar_state='collapsed'
-)
-import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
-import geopandas as gpd
-import unicodedata
-from streamlit_elements import elements, mui
 import folium
 from streamlit_folium import folium_static
-from branca.element import Template, MacroElement
 
 st.set_page_config(
     page_title="NaClO RS",
