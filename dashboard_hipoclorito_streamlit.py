@@ -10,7 +10,7 @@ import folium
 from streamlit_folium import folium_static
 
 st.set_page_config(
-    page_title="NaClO RS",
+    page_title="Hipoclorito RS",
     page_icon="	:droplet:",
     layout="wide",
     initial_sidebar_state='collapsed'
@@ -182,8 +182,8 @@ choropleth = folium.Choropleth(
     columns=['IBGE6', 'Quantidade de Frascos 50mL'],
     key_on='feature.properties.IBGE6',
     fill_color='Purples',  # Use YlOrBr color scheme for choropleth
-    fill_opacity=0.7,  # Maintain fill opacity
-    line_opacity=0.8,  # Reduce line opacity
+    fill_opacity=0.6,  # Maintain fill opacity
+    line_opacity=0.5,  # Reduce line opacity
     line_color='black',  # Add gray line color
     legend_name='Quantidade de Frascos 50mL',
 ).add_to(map_fig)
